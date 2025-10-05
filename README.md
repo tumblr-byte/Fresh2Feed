@@ -83,14 +83,23 @@ To make donating fun and meaningful:
 
 ## Future Scope
 - Expand to **all food categories**: vegetables, cooked meals, packaged goods.  
-- Allow **user registration** with **government ID verification** for security.  
-- NGOs can **approve and coordinate pickup locations**.  
-- Integrate **real-time GPS tracking** for donation logistics.  
-- Add **database support** (PostgreSQL/MySQL) for storing users, donations, and NGOs.  
-- Build a **mobile app** for easier access and notifications.  
-- Provide **multi-language support** for wider reach.  
-- Add **analytics dashboard** for NGOs to track donations, meals served, and wastage reduction.  
-- Implement **impact transparency**, showing donors exactly how their contribution helped.  
+
+- Implement **secure user registration** with **government ID verification** and **encrypted, tamper-proof profiles**, ensuring donor authenticity and preventing misuse.  
+
+- Enable NGOs to **approve donations and coordinate pickup locations efficiently**.  
+
+- Integrate **real-time GPS tracking** for donation pickups and delivery logistics.  
+
+- Store user, donation, and NGO information in a **secure, decentralized/blockchain-inspired database** to prevent tampering or unauthorized access.  
+
+- Develop a **mobile app** for easier access, notifications, and on-the-go donations.  
+
+- Provide **multi-language support** to reach a wider, diverse audience.  
+
+- Add **analytics dashboards** for NGOs to track food donations, meals served, and wastage reduction.  
+
+- Implement **impact transparency**, showing donors exactly how their contribution helped, with real-time feedback and visual reports.
+
 
 ---
 
