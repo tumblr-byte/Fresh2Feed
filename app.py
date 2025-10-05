@@ -67,7 +67,7 @@ NGO_LOCATION = "Mumbai"
 @st.cache_resource
 def load_model():
     """Load the pre-trained food freshness detection model"""
-    class_names = ['freshapple' , 'rottenapple']
+    class_names = ['rottenoranges', 'rottenbananas', 'rottenapples', 'apples', 'oranges', 'banana']
     num_classes = len(class_names)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
@@ -210,8 +210,8 @@ def donor_view():
                         label, is_rotten = predict_freshness(image, model, class_names, device)
                         
                         if is_rotten:
-                            st.error("❌ Sorry! Our AI detected rotten food. We cannot accept this.")
-                            st.info(f"🔍 Detection Result: {label}")
+                            st.error("❌ Sorry! Our AI detected rotten food. We cannot accept this donation for safety reasons.")
+                            st.info(f"🔍 Detection Result: {label.replace('apple', ' Apple').title()}")
                         else:
                             st.success("✅ Food looks fresh! Sending to NGOs...")
                             
@@ -231,7 +231,7 @@ def donor_view():
                             st.balloons()
                             st.success(f"🎉 Donation submitted successfully!")
                             st.info(f"📤 Notification sent to: **{NGO_NAME}** in {NGO_LOCATION}")
-                            st.info(f"🔍 AI Detection: Fresh {label.replace('rotten', '').title()}")
+                            st.info(f"🔍 AI Detection: {label.replace('apple', ' Apple').title()}")
                             
                     except Exception as e:
                         st.error(f"Error processing image: {str(e)}")
@@ -266,12 +266,12 @@ def ngo_view():
     st.markdown(f"""
     <div class="main-header">
         <h1>🏢 Fresh2Feed - Fighting Hunger Together</h1>
-        <p>NGO Dashboard: {NGO_NAME} ({NGO_LOCATION})</p>
+        <p>NGO Dashboard: {NGO_NAME} - Serving All Locations</p>
     </div>
     """, unsafe_allow_html=True)
     
-    # Calculate stats
-    location_donations = [d for d in st.session_state.donations if d['location'] == NGO_LOCATION]
+    # Calculate stats - Show ALL donations regardless of location
+    location_donations = st.session_state.donations  # Changed: show all donations
     approved_donations = [d for d in location_donations if d['status'] == 'Approved']
     total_donations = len(approved_donations)
     total_meals = sum([d['people_fed'] for d in approved_donations])
@@ -326,7 +326,7 @@ def ngo_view():
                 st.write(f"**📍 Location:** {donation['location']}")
                 st.write(f"**👥 Can feed:** {donation['people_fed']} people")
                 st.write(f"**🕐 Time:** {donation['timestamp']}")
-                st.write(f"**🤖 AI Check:** ✅ Fresh {donation['ai_label'].replace('rotten', '').title()}")
+                st.write(f"**🤖 AI Check:** ✅ {donation['ai_label'].replace('apple', ' Apple').title()}")
             
             with col3:
                 st.markdown("<br>", unsafe_allow_html=True)
@@ -394,7 +394,7 @@ def main():
         if view == "Donor":
             st.info("🎁 **Donor View**\n\nDonate food and earn points!")
         else:
-            st.success(f"🏢 **NGO View**\n\n{NGO_NAME}\n📍 {NGO_LOCATION}")
+            st.success(f"🏢 **NGO View**\n\n{NGO_NAME}\n📍 All Locations")
         
         st.markdown("---")
         st.markdown("### 🎯 App Features")
@@ -419,7 +419,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
 
