@@ -78,7 +78,7 @@ def load_model():
     
     # Try to load saved weights
     model_path = 'best_train.pt'
-    model_url = 'https://github.com/name/Fresh2Feed/releases/download/v1.0.0/best_train.pt'
+    model_url = 'https://github.com/tumblr-byte/Fresh2Feed/releases/download/v1.0.0/best_train.pt'
     
     try:
         # Check if model exists locally
@@ -419,6 +419,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
