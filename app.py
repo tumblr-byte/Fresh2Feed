@@ -67,7 +67,7 @@ NGO_LOCATION = "Mumbai"
 @st.cache_resource
 def load_model():
     """Load the pre-trained food freshness detection model"""
-    class_names = ['fresh' , 'spoiled]
+    class_names = ['freshapple' , 'rottenapple']
     num_classes = len(class_names)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
@@ -419,4 +419,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
