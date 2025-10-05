@@ -78,7 +78,7 @@ def load_model():
     
     # Try to load saved weights
     model_path = 'best_train.pt'
-    model_url = 'https://github.com/tumblr-byte/Fresh2Feed/releases/download/v1.0.0/best_train.pt'
+    model_url = 'https://github.com/name/Fresh2Feed/releases/download/v1.0.0/best_train.pt'
     
     try:
         # Check if model exists locally
@@ -210,7 +210,7 @@ def donor_view():
                         label, is_rotten = predict_freshness(image, model, class_names, device)
                         
                         if is_rotten:
-                            st.error("❌ Sorry! Our AI detected rotten food. We cannot accept this donation for safety reasons.")
+                            st.error("❌ Sorry! Our AI detected rotten food. We cannot accept this.")
                             st.info(f"🔍 Detection Result: {label}")
                         else:
                             st.success("✅ Food looks fresh! Sending to NGOs...")
@@ -419,5 +419,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
