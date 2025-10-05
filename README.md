@@ -15,80 +15,94 @@ Fresh2Feed is an innovative platform designed to combat hunger by connecting foo
 ---
 
 ## Our Solution
-Fresh2Feed provides a two-sided platform:
+Fresh2Feed provides a simple, **working prototype** that demonstrates the core functionality of the platform.
 
-### For Donors
-Anyone can donate **surplus food** from weddings, restaurants, family functions, or home. The process is simple:
-1. Enter your name and location.
-2. Upload an image of the food (currently demonstrating with apples).
-3. Specify how many people the food can feed.
+### Current Prototype Workflow
+1. **User Registration:** The judge (or demo user) registers by entering their **name** and **location**.  
+2. **Donation Process (acting as Donor):**
+   - Upload an image of the food (**currently only apples**).  
+     - Image should be **good quality, close-up, and clear** for accurate AI evaluation.  
+   - Choose the **number of people** the food can feed.  
+   - Click **Process**.  
+     - If the food is **fresh**, it moves to the NGO approval stage ✅  
+     - If the food is **rotten**, it is rejected ❌  
+3. **NGO Approval (acting as NGO):**
+   - In the same session, the judge can **switch to NGO view** to see pending donations.  
+   - For each request, they see:  
+     - Uploaded apple image  
+     - Number of people the food can feed  
+     - Timestamp of submission  
+     - Donor location  
+   - Approve the request → points and badges are awarded to the donor.  
+
+> **Note:** Since this is a **demo prototype**, both donor and NGO actions are performed by the same user. Data is **session-based**, so it resets when the browser is refreshed or closed.
+
+---
 
 ### AI-Powered Quality Check
-- Our trained **ResNet18 deep learning model** instantly analyzes the food image to determine freshness.  
-- **Fresh food** → Approved and sent to local NGOs ✅  
-- **Rotten/spoiled food** → Rejected for safety reasons ❌  
-- Ensures only safe, quality food reaches those in need.
+- Our **ResNet18 model** trained on fresh vs rotten apple images evaluates the uploaded food.  
+- Ensures only **safe, quality food** is sent to NGOs.  
 
-### For NGOs
-- Receive real-time notifications of food donations in their area.  
-- Review donation details (donor info, quantity, AI freshness verification).  
-- Approve and coordinate pickup efficiently.  
+---
 
 ### Gamification & Motivation
-To encourage regular participation and make donating fun and meaningful, Fresh2Feed uses a points and badge system:
+To make donating fun and meaningful:
 
 - **Point System:** Donors earn **2 points per person fed** when NGOs approve their donation.  
   - Example: Donate food for 10 people → Earn 20 points  
 
 - **Badge Levels:**  
-  - 🏆 **Gold Hero** - 100+ points (community champion)  
-  - 🥈 **Silver Champion** - 50-99 points (dedicated contributor)  
-  - 🥉 **Bronze Contributor** - 20-49 points (active helper)  
-  - ⭐ **Food Saver** - 0-19 points (getting started)  
+  - 🏆 **Gold Hero** - 100+ points  
+  - 🥈 **Silver Champion** - 50-99 points  
+  - 🥉 **Bronze Contributor** - 20-49 points  
+  - ⭐ **Food Saver** - 0-19 points  
 
 **Why Points Matter:**  
 - Points provide **visual progress** and a sense of achievement.  
-- Badges reflect the donor's contribution level and create **friendly competition**.  
-- Social recognition encourages users to continue donating and share their impact with others.  
-- Impact dashboard shows **“You fed X people this month!”**, linking points to **real-world outcomes**.  
+- Badges reflect contribution level and create **friendly competition**.  
+- Social recognition encourages continued participation.  
+- Dashboard shows **“You fed X people this session!”**, linking points to **real impact**.  
 
-> **Note:** For the current demo, NGOs only approve donations. Pickup coordination and logistics will be integrated in future versions.
+> **Current Limitation:** Pickup coordination is not yet implemented; this will be included in future versions.
 
 ---
 
-## Current Demo
-- **Food Type:** Fresh vs rotten apples (expandable to all food types)  
-- **Locations:** 6 major Indian cities (Mumbai, Delhi, Bangalore, Chennai, Kolkata, Hyderabad)  
-- **NGO:** Pre-registered "Mumbai Food Bank" serving all locations  
+## Demo Details
+- **Food Type:** Apples (fresh vs rotten)  
+- **Locations:** Simulated for multiple cities  
+- **NGO:** Pre-registered demo NGO to approve donations  
 
 ---
 
 ## Technology Stack
 - **Frontend:** Streamlit (Python web framework)  
-- **AI Model:** PyTorch ResNet18 (trained on food freshness dataset)  
-- **Architecture:** Real-time session-based management  
+- **AI Model:** PyTorch ResNet18 (trained on apple freshness dataset)  
+- **Architecture:** Session-based prototype (data not persistent across browser refresh)  
 
 ---
 
 ## Future Scope
 - Expand to **all food categories**: vegetables, cooked meals, packaged goods.  
-- Allow **any user to register** with personal info and verify using **government ID** for security.  
-- NGOs can **approve donations and coordinate pickup locations** based on availability and freshness.  
-- Integrate **real-time GPS tracking** for donation pickups.  
-- Add **database support** (PostgreSQL/MySQL) for storing users, donations, and NGO info.  
+- Allow **user registration** with **government ID verification** for security.  
+- NGOs can **approve and coordinate pickup locations**.  
+- Integrate **real-time GPS tracking** for donation logistics.  
+- Add **database support** (PostgreSQL/MySQL) for storing users, donations, and NGOs.  
 - Build a **mobile app** for easier access and notifications.  
 - Provide **multi-language support** for wider reach.  
-- Add **analytics dashboard** for NGOs to track donations, wastage reduction, and meals served.  
-- Implement **impact transparency** → each donor can see how their donation reached those in need.  
+- Add **analytics dashboard** for NGOs to track donations, meals served, and wastage reduction.  
+- Implement **impact transparency**, showing donors exactly how their contribution helped.  
 
 ---
 
 ## Social Impact
-Fresh2Feed directly addresses UN Sustainable Development Goals:
+Fresh2Feed addresses UN Sustainable Development Goals:
 - **Goal 2:** Zero Hunger  
 - **Goal 12:** Responsible Consumption and Production  
 
 By reducing food waste and feeding the hungry, Fresh2Feed creates a **win-win solution** for society.
 
 ---
+
+
+
 
