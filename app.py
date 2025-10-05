@@ -210,7 +210,7 @@ def donor_view():
                         label, is_rotten = predict_freshness(image, model, class_names, device)
                         
                         if is_rotten:
-                            st.error("❌ Sorry! Our AI detected rotten food. We cannot accept this donation for safety reasons.")
+                            st.error("❌ Sorry! Our AI detected rotten Apple. We cannot accept this donation.")
                             st.info(f"🔍 Detection Result: {label.replace('apple', ' Apple').title()}")
                         else:
                             st.success("✅ Food looks fresh! Sending to NGOs...")
@@ -419,5 +419,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
